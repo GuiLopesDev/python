@@ -3,10 +3,10 @@ Operadores de atribuição
 = += -= *= /= //= **= %=
 '''
 
-contador = 0
+contador = 10
 
-while contador < 10:
-    contador += 2
-    print(contador)
+contador **= 2 
+
+print(contador)
 
 print('Acabou')
