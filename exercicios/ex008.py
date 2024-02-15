@@ -14,13 +14,17 @@ na palavra secreta.
 Faça a contagem de tentativas do seu
 usuário.
 """
-contador = 0
+
+import os
+
 palavra_secreta = 'Perfume'
-palavra_formatada = '*******'
+letras_corretas = ''
+tentativas = 0
 
 while True:
 
     letra_inserida = input('Digite uma letra: ')
+    tentativas += 1
 
     # Verificação de entrada de dados
     if len(letra_inserida) != 1 or not letra_inserida.isnumeric:
@@ -28,15 +32,25 @@ while True:
         continue
 
     # Verificação se a letra inserida está na palavra
+    
+    if letra_inserida in palavra_secreta:
+        letras_corretas += letra_inserida
+
+    palavra_formatada = ''
+    
     for letra in palavra_secreta:
+        if letra in letras_corretas:
+            palavra_formatada += letra
+        else:
+            palavra_formatada += '*'
+    print('Palavra formada:', palavra_formatada)
 
-        print(letra)
+    # Verificação se a palavra está completa e correta
 
-        if letra in palavra_secreta[contador]:
-            print(palavra_secreta[contador])
-
-        contador += 1
-
-    print('Palavra formatada: ',palavra_formatada)
-    if '*' not in palavra_formatada:
-        break
+    if palavra_formatada == palavra_secreta:
+        os.system('cls')
+        print('VOCÊ GANHOU!! PARABÉNS!')
+        print('A palavra era', palavra_secreta)
+        print('Tentativas: ', tentativas)
+        letras_corretas = ''
+        tentativas = 0
