@@ -33,15 +33,17 @@ numeros_multiplicados = []
 contador = 10
 somatoria = 0
 
+# Separando os números para verificar
 for num in cpf:
     try:
         numeros.append(int(num))
     except:
         continue
 
-
+# Primeira etapa de verificação
 for num_mult in numeros:
     numeros_multiplicados.append(num_mult*contador)
+    # Segunda etapa de verificação
     somatoria += numeros_multiplicados[-1]
 
     contador += -1
@@ -50,10 +52,6 @@ for num_mult in numeros:
 
 primeiro_num = (somatoria*10)%11
 
+# Terceira etapa de verificação
 etapa3 = primeiro_num > 9
 verificacao = 'Primeiro digito é 0' if etapa3 else f'Primeiro digito é {primeiro_num}'
-
-print(verificacao)
-
-print(etapa3)
-
