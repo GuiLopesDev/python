@@ -27,31 +27,17 @@ contrário disso:
 O primeiro dígito do CPF é 7
 """
 
-cpf = '746.824.890-70'
-numeros = []
-numeros_multiplicados = []
-contador = 10
-somatoria = 0
+cpf = '74682489070'
+nove_digitos = cpf[:9]
+contador_regressivo_1 = 10
+resultado_digito_1 = 0
 
-# Separando os números para verificar
-for num in cpf:
-    try:
-        numeros.append(int(num))
-    except:
-        continue
+for digito in nove_digitos:
+    resultado_digito_1 += int(digito) * contador_regressivo_1
+    contador_regressivo_1 -= 1
 
-# Primeira etapa de verificação
-for num_mult in numeros:
-    numeros_multiplicados.append(num_mult*contador)
-    # Segunda etapa de verificação
-    somatoria += numeros_multiplicados[-1]
+primeiro_digito = (resultado_digito_1*10)%11
 
-    contador += -1
-    if contador < 2:
-        break
+primeiro_digito = primeiro_digito if primeiro_digito <= 9 else 0
 
-primeiro_num = (somatoria*10)%11
-
-# Terceira etapa de verificação
-etapa3 = primeiro_num > 9
-verificacao = 'Primeiro digito é 0' if etapa3 else f'Primeiro digito é {primeiro_num}'
+print(primeiro_digito)
