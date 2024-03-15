@@ -25,3 +25,34 @@ lista_de_listas_de_inteiros = [
     [5, 3, 1, 8, 5, 7, 1, 8, 8, 7],
     [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
 ]
+
+def encontra_primeiro_duplicado(lista):
+    numeros_verificados = set()
+    primeiro_duplicado = -1
+
+    for numero in lista:
+        if numero in numeros_verificados:
+            primeiro_duplicado = numero
+            break
+
+        numeros_verificados.add(numero)
+
+    return primeiro_duplicado
+
+for lista in lista_de_listas_de_inteiros:
+    print(encontra_primeiro_duplicado(lista))
+
+
+# for lista in lista_de_listas_de_inteiros:
+#     numero_verificados = []
+
+#     for numero in lista:
+
+#         if numero in numero_verificados:
+#             print (f'{numero} é um valor duplicado')
+#             break
+#         else:
+#             numero_verificados.append(numero)
+
+#     if len(lista) == len(numero_verificados):
+#         print(f'-1 , não tem item duplicado')
