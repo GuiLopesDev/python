@@ -15,7 +15,7 @@ novos_precos = [
     for produto in produtos
 ]
 
-print(*novos_precos, sep='\n') 
+# print(*novos_precos, sep='\n') 
 
 
 # Gere novos_produtos por deep copy (cópia profunda)
@@ -24,10 +24,23 @@ from copy import deepcopy
 
 novos_produtos = deepcopy(produtos)
 
-print(novos_produtos)
+# print(novos_produtos)
 
 # Ordene os produtos por nome decrescente (do maior para menor)
 # Gere produtos_ordenados_por_nome por deep copy (cópia profunda)
 
+produtos_ordenados_por_nome = sorted(
+    deepcopy(produtos),
+    key=lambda p: p['nome'],
+    reverse=True
+)
+print(*produtos_ordenados_por_nome, sep='\n')
+
 # Ordene os produtos por preco crescente (do menor para maior)
 # Gere produtos_ordenados_por_preco por deep copy (cópia profunda)
+
+produtos_ordenados_por_preco = sorted(
+    deepcopy(produtos),
+    key=lambda p: p['preco']
+)
+print(*produtos_ordenados_por_preco, sep='\n')
