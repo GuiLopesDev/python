@@ -3,8 +3,8 @@ __localcode
 chromedriver
 mysql_206
 .env
-.txt
-.json
+*.txt
+*.json
 aula207_ola_django/static_files
 
 # Byte-compiled / optimized / DLL files
