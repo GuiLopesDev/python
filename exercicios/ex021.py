@@ -6,21 +6,23 @@ Exercício - Lista de tarefas com desfazer e refazer
 '''
 def lista_comandos(comando):
     if comando == 'listar':
-        print(TodoList)
+        print(*TodoList)
     elif comando == 'desfazer':
         desfazerList.append(TodoList(-1))
         TodoList.pop()
-        print(TodoList)
+        print(*TodoList)
     elif comando == 'refazer':
         TodoList.append(desfazerList(-1))
         desfazerList.pop()
-        print(TodoList)
+        print(*TodoList)
     else:
         TodoList.append(comando)
-        print(TodoList)
+        print(*TodoList)
     
 
-TodoList =[]
+TodoList =[
+        'TAREFAS:',
+        ]
 desfazerList =[]
 
 while len(TodoList) < 10:
